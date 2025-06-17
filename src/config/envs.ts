@@ -4,6 +4,9 @@ import z from 'zod';
 const EnvSchema = z.object({
   PORT: z.number({ coerce: true }),
   STRIPE_SECRET: z.string(),
+  STRIPE_SUCCESS_URL: z.string(),
+  STRIPE_CANCEL_URL: z.string(),
+  STRIPE_WEBHOOK_SECRET: z.string(),
 });
 
 const env = EnvSchema.safeParse(process.env);

@@ -1,4 +1,5 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req, Res } from '@nestjs/common';
+import { Request, Response } from 'express';
 import { PaymentsSessionDto } from './dto/payments-session.dto';
 import { PaymentsService } from './payments.service';
 
@@ -22,7 +23,7 @@ export class PaymentsController {
   }
 
   @Post('webhook')
-  webhook() {
-    return 'post';
+  webhook(@Req() req: Request, @Res() res: Response) {
+    return this.paymentsService.webhook(req, res);
   }
 }
