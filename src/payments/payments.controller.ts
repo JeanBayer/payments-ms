@@ -7,17 +7,17 @@ export class PaymentsController {
 
   @Post('create-payment-session')
   createPaymentSession() {
-    return 'create';
+    return this.paymentsService.createPaymentSession();
   }
 
   @Get('success')
   success() {
-    return 'get';
+    return 'success';
   }
 
   @Get('cancel')
   cancel() {
-    return 'get';
+    return 'cancel';
   }
 
   @Post('webhook')
